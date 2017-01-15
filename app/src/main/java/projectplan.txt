@@ -1,0 +1,35 @@
+Activities:
+    PosterActivity - Recycler view, etc.
+    MovieDetailActivity - Detail view
+ContentProviders:
+    FavoriteMoviesProvider - SQLite db
+Services:
+    None
+Async tasks:
+    Fetch popular movies
+    Fetch top-rated movies
+    Fetch movie reviews
+    Fetch movie trailers
+    Fetch movie details
+
+Adapter has to deal with data from both JSON query and DB query.
+    Store JSON?
+    Extract JSON to Movie object?
+
+Save instance state:
+    Poster activity - not strictly necessary as we could requery DB or JSON results
+    Movie activity - probably need the base movie details stored and something about state (e.g. viewing reviews, viewing overview, viewing trailer list.)
+
+Plan -
+    research picasso API - can I add a lambda for if the image fetch fails?
+    import existing layouts, update them.
+    convert Movie instance to explicitly extract JSON to fields.
+    write DB contract and helper methods, accepting / returing Movie object(s)
+    make Movie parcelable
+    write ContentProvider around the DB
+    update detail view to use data binding.
+    update the adapter to work with sets of Movies (cursor and JSON results)
+    add Favorites option to menu and implement
+    add accordion layouts to the detail view.
+
+    fix some
