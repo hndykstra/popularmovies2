@@ -6,7 +6,7 @@
     <string name="popular">Popular</string>
     <string name="top_rated">Top Rated</string>
     <string name="favorites">Favorites</string>
-    <string name="api_key">643432c05ee1e607369d15a8062bb4b7</string>
+    <string name="api_key">insert_api_key_here</string>
     <string name="title_blank">title here</string>
     <string name="release_date">Released: %1$s</string>
     <string name="user_rating">User Rating: %1$s/10</string>
