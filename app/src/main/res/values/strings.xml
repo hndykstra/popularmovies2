@@ -1,14 +1,38 @@
-<resources>
+<resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
     <string name="app_name">Popular Movies</string>
+    <string name="app_name_popular">Popular Movies</string>
+    <string name="app_name_toprated">Top Rated Movies</string>
+    <string name="app_name_favorite">Favorite Movies</string>
     <string name="popular">Popular</string>
     <string name="top_rated">Top Rated</string>
+    <string name="favorites">Favorites</string>
     <string name="api_key">643432c05ee1e607369d15a8062bb4b7</string>
     <string name="title_blank">title here</string>
-    <string name="original_title">Original Title:</string>
-    <string name="release_date">Released:</string>
-    <string name="user_rating">User Rating:</string>
+    <string name="release_date">Released: %1$s</string>
+    <string name="user_rating">User Rating: %1$s/10</string>
     <string name="overview_blank">No plot synopsis available.</string>
     <string name="movie_missing">No movie selected.</string>
     <string name="not_online">Unable to fetch movies, you need to be online.</string>
     <string name="service_failed">The movie service is not available.</string>
+    <string name="no_data">The query returned no results.</string>
+
+    <string name="pref_query">pref_query</string>
+    <string name="pref_query_default">POPULAR</string>
+
+    <string name="added_favorite">Added to favorites</string>
+    <string name="removed_favorite">Removed from favorites</string>
+
+    <string name="a11y_add_favorite">Add to favorites</string>
+    <string name="a11y_remove_favorite">Remove from favorites</string>
+    <string name="a11y_play_trailer">Play the video</string>
+    <string name="a11y_poster_image">Movie poster image</string>
+
+    <string name="no_trailers">No trailers available</string>
+    <string name="no_reviews">No reviews available</string>
+
+    <string name="trailer_heading">Trailers</string>
+    <string name="review_heading">Reviews</string>
+
+    <string name="trailer_base_url">http://www.youtube.com/watch</string>
+    <string name="trailer_source_query">v</string>
 </resources>

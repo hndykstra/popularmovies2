@@ -81,13 +81,25 @@ public class PosterListAdapter extends RecyclerView.Adapter<PosterListAdapter.Po
             Log.d(PosterActivity.LOG_TAG, "Binding " + aMovie);
             if (this.boundMovie != null) {
                 this.titleView.setText(this.boundMovie.getTitle());
+                this.posterView.setContentDescription(boundMovie.getTitle());
                 String path = this.boundMovie.getPosterPath();
                 Uri posterUri = ImageUtils.buildPosterUri(path);
                 Log.d(PosterActivity.LOG_TAG, "Poster path " + path + ", Uri built " + posterUri);
                 if (posterUri == null) {
                     this.posterView.setImageDrawable(null);
+                    this.titleView.setVisibility(View.VISIBLE);
                 } else {
-                    Picasso.with(this.posterView.getContext()).load(posterUri).into(this.posterView);
+                    Picasso.Builder builder = new Picasso.Builder(itemView.getContext());
+                    builder.listener(new Picasso.Listener() {
+                        @Override
+                        public void onImageLoadFailed(Picasso picasso, Uri uri, Exception exception) {
+                            titleView.setVisibility(View.VISIBLE);
+                            posterView.setImageDrawable(null);
+                        }
+                    });
+                    builder.build().load(posterUri).resizeDimen(R.dimen.poster_width, R.dimen.poster_height)
+                            .into(this.posterView);
+                    this.titleView.setVisibility(View.INVISIBLE);
                 }
             } else {
                 this.titleView.setText("");

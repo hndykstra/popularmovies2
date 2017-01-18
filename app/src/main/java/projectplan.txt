@@ -17,19 +17,90 @@ Adapter has to deal with data from both JSON query and DB query.
     Extract JSON to Movie object?
 
 Save instance state:
-    Poster activity - not strictly necessary as we could requery DB or JSON results
-    Movie activity - probably need the base movie details stored and something about state (e.g. viewing reviews, viewing overview, viewing trailer list.)
+    Poster activity - not strictly necessary as we could requery DB or JSON results, may need to store the current preference (or just fetch from SharedPreferences
+    Preferences - store the popular / top rated / favorites selection in SharedPreferences
+    Movie activity - probably need the base movie details stored and something about view state (e.g. viewing reviews, viewing overview, viewing trailer list.)
 
 Plan -
     research picasso API - can I add a lambda for if the image fetch fails?
-    import existing layouts, update them.
-    convert Movie instance to explicitly extract JSON to fields.
-    write DB contract and helper methods, accepting / returing Movie object(s)
-    make Movie parcelable
-    write ContentProvider around the DB
-    update detail view to use data binding.
-    update the adapter to work with sets of Movies (cursor and JSON results)
-    add Favorites option to menu and implement
-    add accordion layouts to the detail view.
+        builder.listener(new Picasso.Listener() { ... }).build().load(...).into(...);
+    import existing layouts, update them. - CHECK
+    convert Movie instance to explicitly extract JSON to fields. - CHECK
+    write DB contract and helper methods, accepting / returing Movie object(s) - CHECK
+    make Movie parcelable - CHECK
+    write ContentProvider around the DB - CHECK
 
-    fix some
+    update detail view to use data binding. - CHECK
+    update the adapter to work with sets of Movies (cursor and JSON results) - CHECK
+    add Favorites option to menu and implement - CHECK
+    implement remove from favorites / add to favorites. - CHECK
+    add accordion layouts to the detail view. - just straight recyclers XXX
+    implement trailer layout item - CHECK
+    implement review layout item - CHECK
+    implement fetch for trailers and reviews (asynch) - CHECK
+    implement update favorites on detail when movie selected is a favorite - CHECK
+    bind trailers and reviews to UI - CHECK
+    generate intents for trailers. - CHECK
+    implement SharedPreferences for the view preference on init (set menu item checked and select the initial view) - CHECK
+    implement save SharedPreferences for default. - CHECK
+    put title as content description on binding the movie poster view - CHECK
+    add support for missing images around Picasso calls - CHECK
+    add no reviews / no trailers messages
+
+
+trailers schema:
+{"id":76341,
+"results":[
+{"id":"571cce1d92514132d7000a5d",
+"iso_639_1":"en",
+"iso_3166_1":"US",
+"key":"hEJnMQG9ev8",
+"name":"Official Main Trailer",
+"site":"YouTube",
+"size":1080,
+"type":"Trailer"},
+{"id":"571cce3bc3a36865240046c1",
+"iso_639_1":"en",
+"iso_3166_1":"US",
+"key":"YWNWi-ZWL3c",
+"name":"Official Theatrical Teaser Trailer",
+"site":"YouTube",
+"size":1080,
+"type":"Trailer"},
+{"id":"571cce9dc3a36842aa000bc2",
+"iso_639_1":"en",
+"iso_3166_1":"US",
+"key":"MonFNCgK4WE",
+"name":"Official Retaliate Trailer",
+"site":"YouTube",
+"size":1080,
+"type":"Trailer"}]
+}
+http://www.youtube.com/watch?v=xyz
+
+reviews schema:
+{"id":76341,
+"page":1,
+"results":[
+{"id":"55660928c3a3687ad7001db1",
+"author":"Phileas Fogg",
+"content":"Fabulous action movie. Lots of interesting characters. They don't make many movies like this. The whole movie from start to finish was entertaining I'm looking forward to seeing it again. I definitely recommend seeing it.",
+"url":"https://www.themoviedb.org/review/55660928c3a3687ad7001db1"},
+{"id":"55732a53925141456e000639",
+"author":"Andres Gomez",
+"content":"Good action movie with a decent script for the genre. The photography is really good too but, in the end, it is quite repeating itself from beginning to end and the stormy OST is exhausting.",
+"url":"https://www.themoviedb.org/review/55732a53925141456e000639"},
+{"id":"55edd26792514106d600e380",
+"author":"extoix",
+"content":"Awesome movie!  WITNESS ME will stick with me forever!",
+"url":"https://www.themoviedb.org/review/55edd26792514106d600e380"},
+{"id":"5654a732c3a368176600023d",
+"author":"Cineport",
+"content":"Fantastic action that makes up for some plot holes.",
+"url":"https://www.themoviedb.org/review/5654a732c3a368176600023d"},
+{"id":"57162d35c3a3682f450038b2",
+"author":"balumahendran",
+"content":"Wonderful action movie. Scenes are unimaginable. Lots of graphics used in this movie. This is totally a very good action movie.",
+"url":"https://www.themoviedb.org/review/57162d35c3a3682f450038b2"}],
+"total_pages":1,
+"total_results":5}

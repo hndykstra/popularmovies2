@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:paddingTop="16dp">
+    android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/image_poster"
         android:layout_width="180dp"
@@ -16,11 +15,9 @@
         android:layout_marginStart="4dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="4dp"
-        android:layout_marginTop="4dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="4dp"
-        android:scaleType="centerInside"/>
+        android:layout_marginBottom="4dp"/>
     <TextView
         android:id="@+id/title_poster"
         android:layout_width="0dp"

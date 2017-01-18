@@ -1,76 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_movie_detail"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="8dp"
-    tools:context="com.udacity.example.popularmovies.MovieDetailActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="28dp"
-        android:text="@string/title_blank"
-        android:id="@+id/title_movie"
-        android:paddingBottom="16dp"/>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:paddingBottom="16dp">
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/original_title_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:text="@string/original_title"/>
-
-            <TextView
-                android:id="@+id/release_date_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:text="@string/release_date"/>
-
-            <TextView
-                android:id="@+id/user_rating_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:text="@string/user_rating"/>
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/thumbnail_poster"
-            android:layout_width="85dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"/>
-    </LinearLayout>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/textview_overview"
+
+            <LinearLayout
+                android:id="@+id/activity_movie_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:text="@string/overview_blank"/>
-        </ScrollView>
+                android:orientation="vertical"
+                tools:context="com.udacity.example.popularmovies.MovieDetailActivity">
 
+                <include
+                    android:id="@+id/detail_header"
+                    layout="@layout/detail_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+                <TextView
+                    android:id="@+id/textview_overview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:paddingTop="16dp"
+                    android:text="@string/overview_blank"
+                    android:textSize="18dp" />
+
+                <include
+                    android:id="@+id/trailer_view"
+                    layout="@layout/trailer_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp" />
+
+                <include
+                    android:id="@+id/review_view"
+                    layout="@layout/review_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+           </LinearLayout>
+        </ScrollView>
     </FrameLayout>
-</LinearLayout>
+</layout>
